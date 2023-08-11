@@ -1,6 +1,2 @@
-*
-
-!theme.js
-!user.css
-!color.ini
-!assets
+node_modules
+package-lock.json
