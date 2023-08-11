@@ -16,6 +16,8 @@
 
 ### **Light**
 
+test
+
 ![light](https://raw.githubusercontent.com/nimsandu/spicetify-bloom/main/images/light.png)
 
 ### **Dark Mono**
