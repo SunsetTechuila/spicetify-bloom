@@ -28,9 +28,8 @@ jobs:
         run: |
           mkdir -p assets
           cp -r src/assets/* assets
-      - name: Distribute files to dist branch
-        uses: planetoftheweb/copy-to-branches@v1
-        env:
-          key: main
-          branches: dist
-          files: assets/* dist/*
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "chore: update"
+          branch: dist
