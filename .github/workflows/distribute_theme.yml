@@ -9,6 +9,8 @@ jobs:
   distribute-theme:
     name: Distribute Theme
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout Project
         uses: actions/checkout@v3
