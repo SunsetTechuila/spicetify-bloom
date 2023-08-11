@@ -1,2 +1,6 @@
-node_modules
-package-lock.json
+*
+
+!theme.js
+!user.css
+!color.ini
+!assets
