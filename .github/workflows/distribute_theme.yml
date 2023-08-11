@@ -20,15 +20,17 @@ jobs:
           node-version: 18
       - name: Install Dependencies
         run: npm i
+      - name: Lint Code
+        run: npm run lint
       - name: Build Theme
         run: |
           npm run build-theme
-          mv ./dist/* ./
-          rm -rf ./dist
+          mv dist/* .
+          rm -rf dist
       - name: Copy Assets
         run: |
           mkdir -p assets
-          cp -r ./src/assets/* ./assets/
+          cp -r src/assets/* assets
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
