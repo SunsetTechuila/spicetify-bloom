@@ -39,17 +39,17 @@
     "build-theme-local": "npm run build-script-local && npm run build-styles-local && npm run copy-colors",
     "watch-theme": "concurrently \"npm run watch-script\" \"npm run watch-styles\" \"npm run watch-colors\"",
     "update-types": "curl -s -o src/script/types/spicetify.d.ts https://raw.githubusercontent.com/spicetify/spicetify-cli/master/globals.d.ts",
-    "lint": "prettier . --check && eslint . && stylelint \"**/*.scss\"",
-    "lint-fix": "prettier . --write && eslint --fix . && stylelint \"**/*.scss\" --fix"
+    "lint": "prettier . --check && eslint src/script && stylelint src/styles",
+    "lint-fix": "prettier . --write && eslint --fix src/script && stylelint src/styles --fix"
   },
   "devDependencies": {
-    "cross-os": "^1.4.0",
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
     "@typescript-eslint/eslint-plugin": "^5.61.0",
     "@typescript-eslint/parser": "^5.61.0",
     "concurrently": "^8.2.0",
     "copyfiles": "^2.4.1",
+    "cross-os": "^1.4.0",
     "eslint": "^8.44.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^17.0.0",
