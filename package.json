@@ -2,7 +2,7 @@
   "name": "bloom",
   "private": true,
   "scripts": {
-    "build-script": "spicetify-creator --minify --out=dist --in=src/script",
+    "build-script": "spicetify-creator --minify --out=dist",
     "build-script-local": "cross-os _build-script-local",
     "watch-script": "cross-os _watch-script",
     "build-styles": "sass src/styles/main.scss dist/user.css --no-source-map --style compressed",
@@ -18,14 +18,14 @@
     "lint": "prettier . --check && eslint src/script && stylelint src/styles",
     "lint-fix": "prettier . --write && eslint --fix src/script && stylelint src/styles --fix",
     "_build-script-local": {
-      "win32": "spicetify-creator --out=\"%APPDATA%/spicetify/Themes/bloom\" --in=src/script",
-      "linux": "spicetify-creator --out=~/.config/spicetify/Themes/bloom --in=src/script",
-      "darwin": "spicetify-creator --out=~/.config/spicetify/Themes/bloom --in=src/script"
+      "win32": "spicetify-creator --out=\"%APPDATA%/spicetify/Themes/bloom\"",
+      "linux": "spicetify-creator --out=~/.config/spicetify/Themes/bloom",
+      "darwin": "spicetify-creator --out=~/.config/spicetify/Themes/bloom"
     },
     "_watch-script": {
-      "win32": "spicetify-creator --watch --out=\"%APPDATA%/spicetify/Themes/bloom\" --in=src/script",
-      "linux": "spicetify-creator --watch --out=~/.config/spicetify/Themes/bloom --in=src/script",
-      "darwin": "spicetify-creator --watch --out=~/.config/spicetify/Themes/bloom --in=src/script"
+      "win32": "spicetify-creator --watch --out=\"%APPDATA%/spicetify/Themes/bloom\"",
+      "linux": "spicetify-creator --watch --out=~/.config/spicetify/Themes/bloom",
+      "darwin": "spicetify-creator --watch --out=~/.config/spicetify/Themes/bloom"
     },
     "_build-styles-local": {
       "win32": "sass src/styles/main.scss \"%APPDATA%/spicetify/Themes/bloom/user.css\" --no-source-map",
