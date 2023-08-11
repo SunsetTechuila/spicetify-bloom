@@ -33,3 +33,5 @@ jobs:
           BRANCH: dist
           FOLDER: dist
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SKIP_EMPTY_COMMITS: true
+          MESSAGE: "chore: update"
