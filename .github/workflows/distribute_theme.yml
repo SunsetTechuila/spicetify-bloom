@@ -34,3 +34,4 @@ jobs:
         with:
           commit_message: "chore: update"
           branch: dist
+          skip_checkout: true
