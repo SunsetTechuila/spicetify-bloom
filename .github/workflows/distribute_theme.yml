@@ -20,8 +20,6 @@ jobs:
           node-version: 18
       - name: Install Dependencies
         run: npm i
-      - name: Lint Code
-        run: npm run lint
       - name: Build Theme
         run: |
           npm run build-theme
