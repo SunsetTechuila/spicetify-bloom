@@ -8,10 +8,11 @@
     "build-styles": "sass src/styles/main.scss dist/user.css --no-source-map --style compressed",
     "build-styles-local": "cross-os _build-styles-local",
     "watch-styles": "cross-os _watch-styles",
-    "copy-colors": "cross-os _copy-colors",
+    "copy-colors": "copyfiles --flat src/color.ini dist",
+    "copy-colors-local": "cross-os _copy-colors-local",
     "watch-colors": "onchange src/color.ini -- npm run copy-colors",
-    "build-theme": "npm run build-script && npm run build-styles",
-    "build-theme-local": "npm run build-script-local && npm run build-styles-local && npm run copy-colors",
+    "build-theme": "npm run build-script && npm run build-styles && npm run copy-colors",
+    "build-theme-local": "npm run build-script-local && npm run build-styles-local && npm run copy-colors-local",
     "watch-theme": "concurrently \"npm run watch-script\" \"npm run watch-styles\" \"npm run watch-colors\"",
     "update-types": "curl -s -o src/script/types/spicetify.d.ts https://raw.githubusercontent.com/spicetify/spicetify-cli/master/globals.d.ts",
     "lint": "prettier . --check && eslint src/script && stylelint src/styles",
@@ -36,7 +37,7 @@
       "linux": "sass src/styles/main.scss ~/.config/spicetify/Themes/bloom/user.css --no-source-map --watch",
       "darwin": "sass src/styles/main.scss ~/.config/spicetify/Themes/bloom/user.css --no-source-map --watch"
     },
-    "_copy-colors": {
+    "_copy-colors-local": {
       "win32": "copyfiles --flat src/color.ini \"%APPDATA%/spicetify/Themes/bloom\"",
       "linux": "copyfiles --flat src/color.ini ~/.config/spicetify/Themes/bloom",
       "darwin": "copyfiles --flat src/color.ini ~/.config/spicetify/Themes/bloom"
