@@ -24,6 +24,10 @@ jobs:
         run: npm run lint
       - name: Build
         run: npm run build-theme
+      - name: Copy Assets
+        run: |
+          mkdir -p assets
+          cp -r src/assets/* assets/
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
