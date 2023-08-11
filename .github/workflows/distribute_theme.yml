@@ -9,8 +9,6 @@ jobs:
   distribute-theme:
     name: Distribute Theme
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - name: Checkout Project
         uses: actions/checkout@v3
@@ -24,14 +22,13 @@ jobs:
         run: |
           npm run build-theme
           mv dist/* .
-          rm -rf dist
       - name: Copy Assets
         run: |
           mkdir -p assets
           cp -r src/assets/* assets
-      - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: "chore: update"
-          branch: dist
-          skip_checkout: true
+      - name: Distribute files to dist branch
+        uses: planetoftheweb/copy-to-branches@v1
+        env:
+          key: main
+          branches: dist
+          files: assets/* dist/*
