@@ -44,13 +44,29 @@ by [yumegenso](https://github.com/yumegenso)
 - [Segoe UI](https://en.wikipedia.org/wiki/Segoe#Segoe_UI) font family, comes pre-installed on Windows.
   - Segoe UI Variable download link for Linux/macOS/Windows 10 users: [click me](https://aka.ms/SegoeUIVariable)
 
+## Customization
+
+### Changing Color Scheme
+
+The `dark` color scheme is applied by default.
+
+The available color schemes are: `dark` `light` `darkmono` `darkgreen` `coffee` `comfy` . You can change the color scheme on the Marketplace page.
+
+### Editing Color Scheme
+
+You can change the scheme colors using Marketplace built-in `Color.ini Editor`.
+
+### Settings
+
+The theme settings are accessible from the Spotify settings page. Scroll to the bottom of it.
+
 ## Troubleshooting
 
 ### Issues when installing from Spicetify Marketplace
 
 ```sh
 spicetify config current_theme marketplace color_scheme marketplace
-spicetify config inject_css 1 replace_colors 1 overwrite_assets 1 inject_theme_js 1
+spicetify config inject_css 1 replace_colors 1 inject_theme_js 1
 spicetify apply
 ```
 
@@ -65,6 +81,25 @@ Open Spotify settings and turn on `Enable hardware acceleration`.
 ### Some custom app on the left navbar has a wrong icon
 
 Please report about that via the repository's issues page.
+
+### High CPU usage, UI lags, laggy menus/flyouts
+
+First - make sure you have hardware acceleration enabled.
+Second - disable `Fix some menus and flyouts background blur` in the Bloom settings. If it worked - read on, if it didn't - your PC is probably not performant enough for Bloom.
+
+> [!WARNING]
+> You need Spicetify **version 2.23.3 or higher** to use this.
+
+Open your Spicetify config (`spicetify -c`), go to the `Patch` section and paste the following:
+
+```ini
+vendor~xpui.js_find_8008     = (\w+)=\w+\.props\.interactive&&\w+===\w+\|\|"parent"===\w+\?(\w+)\.parentNode:(\w+)\((\w+),\[(\w+)\]\)
+vendor~xpui.js_repl_all_8008 = ${1}=/(?:\bcontextMenu\b|\blyrics-tooltip-wrapper\b)/.test(${2}.parentNode.className)?${2}.parentNode:${3}(${4},[${5}])
+vendor~xpui.js_find_0880     = (\w+)\.contains\((\w+)\)\|\|\w+\.appendChild\(\w+\)
+vendor~xpui.js_repl_all_0880 = ${1}.contains(${2})||${1}.appendChild(${2});${2}.classList.add("encore-dark-theme")
+```
+
+Save the changes and then run `spicetify apply`.
 
 ### Theme doesn't work correctly with Spotify version less than 1.2.14
 

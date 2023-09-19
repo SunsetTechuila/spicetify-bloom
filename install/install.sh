@@ -46,9 +46,9 @@ printf "\nPress any key to continue or Ctrl+C to cancel"
 read -sn1 < /dev/tty
 printf "\n\n"
 
-# Check if $spicePath\Themes\bloom directory exists
+# Check if $spicePath\Themes\Bloom directory exists
 spicePath="$(dirname "$(spicetify -c)")"
-themePath="$spicePath/Themes/bloom"
+themePath="$spicePath/Themes/Bloom"
 if [ -d "$themePath" ]; then
     rm -rf "$themePath"
 fi
@@ -67,25 +67,25 @@ if [[ -e "$extensionPath" || -h "$extensionPath" ]]; then
 fi
 
 # Download latest master
-zipUri="https://github.com/nimsandu/spicetify-bloom/archive/refs/heads/master.zip"
+zipUri="https://github.com/nimsandu/spicetify-bloom/archive/refs/heads/dist.zip"
 zipSavePath=`mktemp`
 zipExtractPath=`mktemp -d`
-echo "Downloading bloom-spicetify latest master..."
+echo "Downloading spicetify-bloom latest dist..."
 curl --fail --location --progress-bar "$zipUri" --output "$zipSavePath"
 
 # Extract theme from .zip file
 echo "Extracting..."
 unzip -oq "$zipSavePath" -d "$zipExtractPath" < /dev/tty
-mv "$zipExtractPath/spicetify-bloom-main/dist/" "$themePath"
+mv "$zipExtractPath/spicetify-bloom-dist/" "$themePath"
 
 # Delete .zip file
 echo "Deleting zip file..."
 rm -rf "$zipSavePath" "$zipExtractPath"
 
 # Apply the theme with spicetify config calls
-spicetify config current_theme bloom
+spicetify config current_theme Bloom
 spicetify config color_scheme dark
-spicetify config inject_css 1 replace_colors 1 overwrite_assets 1 inject_theme_js 1
+spicetify config inject_css 1 replace_colors 1 inject_theme_js 1
 echo "+ Configured Bloom theme"
 
 # Just straight up backup-apply, many users don't pre-configure their spicetify

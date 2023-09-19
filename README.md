@@ -48,7 +48,7 @@ by [yumegenso](https://github.com/yumegenso)
 
 ### Spicetify Marketplace
 
-Simply install [spicetify-marketplace](https://github.com/spicetify/spicetify-marketplace) by following it's
+Simply install [Spicetify Marketplace](https://github.com/spicetify/spicetify-marketplace) by following it's
 [installation instructions](https://github.com/spicetify/spicetify-marketplace/wiki/Installation). Then look for `Bloom` theme and click the install button.
 
 ### Scripts
@@ -56,7 +56,6 @@ Simply install [spicetify-marketplace](https://github.com/spicetify/spicetify-ma
 #### Windows (Powershell)
 
 ```powershell
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 iex "& { $(iwr -useb 'https://raw.githubusercontent.com/nimsandu/spicetify-bloom/main/install/powershell/bloom.ps1') }"
 ```
 
@@ -81,19 +80,19 @@ Use this guide to install if you're having trouble using the shell commands/inst
 
 1. Download this repo as [archive](https://codeload.github.com/nimsandu/spicetify-bloom/zip/refs/heads/main).
 2. Navigate to the Spicetify's `Themes` directory. Use `spicetify path userdata` command to get the path.
-3. In the directory, create a new folder called `bloom`.
-4. Open the downloaded repo archive, and move all of the files from the `src` subfolder to the `bloom` folder you created.
+3. In the directory, create a new folder called `Bloom`.
+4. Open the downloaded repo archive, and move all of the files from the `src` subfolder to the `Bloom` folder you created.
 5. Open a terminal/command prompt window and type the following commands:
 
    ```shell
-    spicetify config current_theme bloom color_scheme dark
-    spicetify config inject_css 1 replace_colors 1 overwrite_assets 1 inject_theme_js 1
+    spicetify config current_theme Bloom color_scheme dark
+    spicetify config inject_css 1 replace_colors 1 inject_theme_js 1
     spicetify apply
    ```
 
 ## Customization
 
-### Color Scheme
+### Changing Color Scheme
 
 The `dark` color scheme is applied by default during the installation process. If you install Bloom via PowerShell the installed color scheme depends on your Windows settings.
 
@@ -106,14 +105,18 @@ spicetify apply
 
 If you installed Bloom from Marketplace you can change the color scheme on its page.
 
-### Accent Color
+### Editing Color Scheme
 
 1. Navigate to the Spicetify's `Themes` directory. Use `spicetify path userdata` command to get the path.
-2. Open `bloom` folder.
+2. Open `Bloom` folder.
 3. Edit your current color scheme in the `color.ini` file.
 4. Use the `spicetify apply` command.
 
-If you installed Bloom from Marketplace you can change the accent color using built-in `Color.ini Editor`.
+If you installed Bloom from Marketplace you can change the scheme colors using built-in `Color.ini Editor`.
+
+### Settings
+
+The theme settings are accessible from the Spotify settings page. Scroll to the bottom of it.
 
 ## Updating
 
@@ -122,7 +125,6 @@ For those who used scripts and not Marketplace.
 ### Windows (PowerShell)
 
 ```powershell
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 iex "& { $(iwr -useb 'https://raw.githubusercontent.com/nimsandu/spicetify-bloom/main/install/powershell/bloom.ps1') } -Action Update"
 ```
 
@@ -137,7 +139,6 @@ For those who used scripts and not Marketplace.
 ### Automated (Windows PowerShell)
 
 ```powershell
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 iex "& { $(iwr -useb 'https://raw.githubusercontent.com/nimsandu/spicetify-bloom/main/install/powershell/bloom.ps1') } -Action Uninstall"
 ```
 
@@ -154,9 +155,9 @@ spicetify apply
 
 ### Issues when installing from Spicetify Marketplace
 
-```sh
+```shell
 spicetify config current_theme marketplace color_scheme marketplace
-spicetify config inject_css 1 replace_colors 1 overwrite_assets 1 inject_theme_js 1
+spicetify config inject_css 1 replace_colors 1 inject_theme_js 1
 spicetify apply
 ```
 
@@ -171,6 +172,25 @@ Open Spotify settings and turn on `Enable hardware acceleration`.
 ### Some custom app on the left navbar has a wrong icon
 
 Please report about that via the repository's issues page.
+
+### High CPU usage, UI lags, laggy menus/flyouts
+
+First - make sure you have hardware acceleration enabled.
+Second - disable `Fix some menus and flyouts background blur` in the Bloom settings. If it worked - read on, if it didn't - your PC is probably not performant enough for Bloom.
+
+> [!WARNING]
+> You need Spicetify **version 2.23.3 or higher** to use this.
+
+Open your Spicetify config (`spicetify -c`), go to the `Patch` section and paste the following:
+
+```ini
+vendor~xpui.js_find_8008     = (\w+)=\w+\.props\.interactive&&\w+===\w+\|\|"parent"===\w+\?(\w+)\.parentNode:(\w+)\((\w+),\[(\w+)\]\)
+vendor~xpui.js_repl_all_8008 = ${1}=/(?:\bcontextMenu\b|\blyrics-tooltip-wrapper\b)/.test(${2}.parentNode.className)?${2}.parentNode:${3}(${4},[${5}])
+vendor~xpui.js_find_0880     = (\w+)\.contains\((\w+)\)\|\|\w+\.appendChild\(\w+\)
+vendor~xpui.js_repl_all_0880 = ${1}.contains(${2})||${1}.appendChild(${2});${2}.classList.add("encore-dark-theme")
+```
+
+Save the changes and then run `spicetify apply`.
 
 ### Theme doesn't work correctly with Spotify version less than 1.2.14
 
