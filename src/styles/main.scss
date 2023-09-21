@@ -57,7 +57,10 @@ html {
   height: calc(100% - 48px);
   overflow: visible;
   background-color: var(--spice-main);
-  border-radius: var(--border-radius-1) !important;
+  border-top-left-radius: var(--border-radius-1);
+  border-top-right-radius: var(--border-radius-1);
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .main-view-container__scroll-node > .os-scrollbar-vertical {
@@ -723,6 +726,7 @@ style {
 .Root__nav-bar {
   top: var(--temp-var);
   z-index: 1 !important;
+  min-width: 73px;
   height: calc(100% - 48px);
 }
 
@@ -736,12 +740,14 @@ style {
 }
 
 /* rounded main view container corners */
+
 .Root__main-view::before {
   position: absolute;
   z-index: 1;
   width: 100%;
   height: 100%;
-  border-radius: var(--border-radius-1);
+  border-top-left-radius: var(--border-radius-1);
+  border-top-right-radius: var(--border-radius-1);
   box-shadow:
     0 -8px 0 var(--spice-sidebar),
     0 8px 0 var(--spice-sidebar);
@@ -749,61 +755,11 @@ style {
   pointer-events: none;
 }
 
-.main-navBar-navBarLink {
-  position: relative;
-  display: block;
-  height: 65px !important;
-  margin-bottom: 4px;
-  padding-top: 12px;
-  padding-right: 0;
-  padding-left: 0;
-  color: var(--spice-text);
-  text-align: center;
-  border-radius: var(--border-radius-2);
-}
-
-.main-navBar-navBarLink span,
-.main-createPlaylistButton-text {
-  display: block;
-  margin: auto;
-  margin-top: 4px;
-  color: var(--spice-subtext);
-  font-size: 10.5px !important;
-  white-space: pre;
-  text-align: center;
-}
-
-.main-navBar-navBarLinkActive span {
-  display: none;
-}
-
-/* Center Icon */
-.main-navBar-navBarLinkActive svg {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.main-navBar-navBarLinkActive > .icon,
-.main-navBar-navBarLinkActive .main-navBar-icon,
-.main-navBar-navBarLinkActive > .main-navBar-icon {
-  position: relative;
-  top: 50%;
-  margin: auto;
-  transform: translate(0, -50%);
-}
-
-.main-navBar-navBarLinkActive {
-  padding: 0;
-}
-
-.main-navBar-entryPoints {
-  padding-top: 0 !important;
-}
-
-.main-navBar-navBarItem {
-  padding: 0 9px;
+.Root__top-container[data-right-sidebar-hidden="true"] {
+  .Root__main-view::before,
+  .Root__main-view {
+    border-top-right-radius: 0 !important;
+  }
 }
 
 .main-type-mestoBold {
@@ -820,32 +776,16 @@ style {
   border-radius: var(--border-radius-2);
 }
 
-.main-navBar-navBarLinkActive > .navBar-navBarLink-accent,
 .main-yourLibraryX-navLinkActive > .main-yourLibraryX-navLink-accent {
   display: block !important;
 }
 
-.main-navBar-navBarLink:hover,
 .main-yourLibraryX-navLink:hover {
   background-color: rgba(var(--spice-rgb-selected-row), 0.6);
 }
 
-.main-navBar-navBarLink:active,
 .main-yourLibraryX-navLink:active {
   background-color: rgba(var(--spice-rgb-selected-row), 0.8);
-}
-
-.main-navBar-navBarLinkActive,
-.main-navBar-navBarLinkActive:hover,
-.main-navBar-navBarLinkActive:active,
-.main-navBar-navBarLinkActive:focus {
-  color: var(--spice-not-selected);
-  background-color: var(--spice-selected-row);
-  transition: 167ms ease-out all;
-}
-
-.main-navBar-navBarLink {
-  transition: background-color ease-out 167ms;
 }
 
 /* playlist sidebar */
@@ -2422,7 +2362,7 @@ input:checked ~ .x-toggle-indicatorWrapper .x-toggle-indicator {
 /* Top container */
 
 .Root__top-container {
-  padding-top: 0 !important;
+  --panel-gap: 0 !important;
 }
 
 /* Topbar */
@@ -2456,6 +2396,11 @@ input:checked ~ .x-toggle-indicatorWrapper .x-toggle-indicator {
 }
 
 /* Left navbar */
+
+.main-yourLibraryX-entryPoints,
+.main-buddyFeed-container {
+  background: transparent;
+}
 
 .ChipInnerComponent,
 .ChipInnerComponent-secondary {
