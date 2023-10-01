@@ -53,10 +53,7 @@ html {
 
 .Root__main-view {
   top: var(--topbar-height);
-  z-index: 0;
-  height: calc(
-    100% - calc(var(--temp-var2) - var(--topbar-height)) - calc(var(--border-radius-1) - 1px)
-  );
+  height: calc(100% - (var(--temp-var2) - var(--topbar-height)) - (var(--border-radius-1) - 2px));
   overflow: visible;
   border-radius: var(--border-radius-1) !important;
 }
@@ -133,7 +130,6 @@ html {
 }
 
 .main-rootlist-rootlistDivider,
-.main-contextMenu-dividerBefore::before,
 .main-contextMenu-dividerAfter::after,
 .show-episodeList-divider,
 .main-rootlist-rootlistDividerContainer {
@@ -191,7 +187,7 @@ html {
 }
 
 .x-searchResultsTracks-root > .main-gridContainer-gridContainer,
-.main-trackList-indexable,
+.main-trackList-trackList,
 .main-card-card,
 .main-heroCard-card,
 .view-homeShortcutsGrid-draggable {
@@ -364,6 +360,11 @@ h3,
   border-radius: var(--border-radius-1);
   backdrop-filter: blur(35px) saturate(3.5);
   content: "";
+}
+
+.main-contextMenu-dividerBefore::before,
+.main-contextMenu-dividerAfter::after {
+  border-bottom: 1px solid rgba(var(--spice-rgb-subtext), 0.3) !important;
 }
 
 #context-menu > .main-contextMenu-menu::before,
@@ -728,9 +729,7 @@ style {
 .Root__nav-bar {
   top: var(--topbar-height);
   z-index: 1 !important;
-  height: calc(
-    100% - calc(var(--temp-var2) - var(--topbar-height)) - calc(var(--border-radius-1) - 1px)
-  );
+  height: calc(100% - (var(--temp-var2) - var(--topbar-height)) - (var(--border-radius-1) - 2px));
 }
 
 /* Fade effect when scrolling down playlists */
@@ -892,19 +891,19 @@ style {
 
 /* tracklist */
 
-.main-trackList-indexable .main-virtualScrollList-wrapper,
-.main-trackList-indexable .main-rootlist-wrapper {
+.main-trackList-trackList .main-virtualScrollList-wrapper,
+.main-trackList-trackList .main-rootlist-wrapper {
   padding: 8px;
   background-color: var(--spice-card);
   border-radius: var(--border-radius-2);
 }
 
-.main-trackList-indexable {
+.main-trackList-trackList {
   padding: 8px;
   padding-bottom: 24px;
 }
 
-.main-trackList-trackList.main-trackList-indexable {
+.main-trackList-trackList {
   background-color: var(--spice-card);
   border-radius: var(--border-radius-2);
 }
@@ -1302,7 +1301,7 @@ style {
 /* notification */
 
 .main-notificationBubbleContainer-NotificationBubbleContainer {
-  margin-bottom: calc(var(--temp-var2) + 5px);
+  margin-bottom: var(--temp-var2);
 }
 
 .main-notificationBubble-NotificationBubble {
@@ -1442,6 +1441,10 @@ style {
 
 /* friend activity */
 
+.main-buddyFeed-content > div > ol {
+  padding-bottom: var(--temp-var2);
+}
+
 .spotify__container--is-desktop.spotify__os--is-windows
   .Root__top-container--right-sidebar-visible
   .main-topBar-container {
@@ -1486,10 +1489,11 @@ style {
 }
 
 .Root__right-sidebar {
-  height: calc(
-    100% - calc(var(--temp-var2) - var(--topbar-height)) - calc(var(--border-radius-1) - 1px)
-  );
   margin-top: var(--topbar-height);
+}
+
+.Root__right-sidebar:not(:has(.main-nowPlayingView-content)) {
+  height: calc(100% - (var(--temp-var2) - var(--topbar-height)) - (var(--border-radius-1) - 2px));
 }
 
 .main-buddyFeed-findFriendsIcon,
@@ -1641,6 +1645,14 @@ input:checked ~ .x-toggle-indicatorWrapper .x-toggle-indicator {
   background-color: rgba(var(--spice-rgb-card), 0.5);
 }
 
+.hcuLp8V4uEEfWZ4k6aLV[aria-disabled="true"] ._k3JjF2rHwdYfSPZH09S {
+  background-color: rgba(var(--spice-rgb-card), 0.5);
+}
+
+.hcuLp8V4uEEfWZ4k6aLV[aria-disabled="true"] .main-devicePicker-nowPlayingActiveIcon {
+  background-color: rgba(var(--spice-rgb-card), 0.5);
+}
+
 ._9eb5acf729a98d62135ca21777fef244-scss,
 .connect-device-button {
   color: var(--spice-shadow);
@@ -1727,9 +1739,18 @@ input:checked ~ .x-toggle-indicatorWrapper .x-toggle-indicator {
   background: rgba(var(--spice-rgb-player), 0.75);
   border: 1px solid var(--spice-player-border);
   border-radius: var(--border-radius-1);
-  /* 100% - side padding   */
   box-shadow: 0 0 8px 4px rgba(0, 0, 0, 0.25) !important;
+}
+
+.main-nowPlayingBar-container::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
   backdrop-filter: blur(50px) saturate(1.5) !important;
+  content: "";
 }
 
 .main-nowPlayingBar-container {
@@ -2082,14 +2103,20 @@ input:checked ~ .x-toggle-indicatorWrapper .x-toggle-indicator {
 }
 
 /* Shuffle disabled */
-.main-shuffleButton-button {
+.main-shuffleButton-button,
+// smart shuffle
+.player-controls .lihLVK button {
+  min-block-size: 24px !important;
   height: 24px !important;
   background-color: var(--spice-subtext) !important;
+  border: none !important;
   -webkit-mask-image: url("https://nimsandu.github.io/spicetify-bloom/assets/fluentui-system-icons/ic_fluent_arrow_shuffle_24_regular.svg");
 }
 
 /* Shuffle enabled */
-.main-shuffleButton-button[aria-checked="true"] {
+.main-shuffleButton-button[aria-checked="true"],
+  // smart shuffle
+.player-controls .lihLVK .d89qxCxbCRj4y1Woft8j {
   height: 24px !important;
   background-color: var(--spice-accent) !important;
   -webkit-mask-image: url("https://nimsandu.github.io/spicetify-bloom/assets/fluentui-system-icons/ic_fluent_arrow_shuffle_24_filled.svg");
@@ -2288,7 +2315,7 @@ input:checked ~ .x-toggle-indicatorWrapper .x-toggle-indicator {
 }
 
 .main-view-container__scroll-node-child {
-  padding-bottom: 118px;
+  padding-bottom: calc(var(--temp-var2) + 8px);
 }
 
 .view-homeShortcutsGrid-imageContainer {
@@ -2508,11 +2535,6 @@ input:checked ~ .x-toggle-indicatorWrapper .x-toggle-indicator {
 }
 
 /* Right sidebar */
-
-.main-buddyFeed-content > div > ol,
-.main-nowPlayingView-content {
-  padding-bottom: var(--temp-var2);
-}
 
 /* Friends activity */
 
