@@ -3,9 +3,9 @@
   "description": "Spicetify theme inspired by Microsoft Fluent Design",
   "preview": "images/main-cover.png",
   "readme": "readme_marketplace.md",
-  "usercss": "https://nimsandu.github.io/spicetify-bloom/user.css",
-  "schemes": "https://nimsandu.github.io/spicetify-bloom/color.ini",
-  "include": ["https://nimsandu.github.io/spicetify-bloom/theme.js"],
+  "usercss": "https://sunsettechuila.github.io/spicetify-bloom/user.css",
+  "schemes": "https://sunsettechuila.github.io/spicetify-bloom/color.ini",
+  "include": ["https://sunsettechuila.github.io/spicetify-bloom/theme.js"],
   "authors": [
     {
       "name": "Nimsandu Kottage",

@@ -1,7 +1,8 @@
 import addButtonStyles from "./main/modules/addButtonStyles";
+import addBlurElements from "./main/modules/addBlurElements";
 import addLibraryNavLinkAccent from "./main/modules/addLibraryNavLinkAccent";
-import controlNoiseOpacity from "./main/modules/controlNoiseOpacity";
 import keepTopBarContentCentered from "./main/modules/keepTopBarContentCentered";
+import controlNoiseOpacity from "./main/modules/controlNoiseOpacity";
 import addSettingsAsync from "./main/modules/addSettingsAsync";
 
 import styleCategoryCards from "./features/categoryCardBackdrops/styleCategoryCards";
@@ -23,9 +24,10 @@ async function bloom(): Promise<void> {
   //   document.documentElement.style.setProperty("--filter-brightness", 0);
   // }
 
+  addBlurElements();
   addButtonStyles();
-  keepTopBarContentCentered();
   addLibraryNavLinkAccent();
+  keepTopBarContentCentered();
   controlNoiseOpacity();
   styleCategoryCards();
 
