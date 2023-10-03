@@ -27,7 +27,7 @@ jobs:
         run: |
           cp -r src/assets dist
       - name: Deploy Changes
-        uses: s0/git-publish-subdir-action@develop
+        uses: SunsetTechuila/git-publish-subdir-action@build
         env:
           REPO: self
           BRANCH: dist
