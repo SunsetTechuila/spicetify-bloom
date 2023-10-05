@@ -6,36 +6,36 @@
   **Consider starring us and suggest stuff by submitting a comment!**
 </div>
 
-![main-cover](https://raw.githubusercontent.com/nimsandu/spicetify-bloom/main/images/main-cover.png)
+![main-cover](https://raw.githubusercontent.com/SunsetTechuila/spicetify-bloom/main/images/main-cover.png)
 
 ## First Look
 
 ### **Dark**
 
-![dark](https://raw.githubusercontent.com/nimsandu/spicetify-bloom/main/images/dark.png)
+![dark](https://raw.githubusercontent.com/SunsetTechuila/spicetify-bloom/main/images/dark.png)
 
 ### **Light**
 
-![light](https://raw.githubusercontent.com/nimsandu/spicetify-bloom/main/images/light.png)
+![light](https://raw.githubusercontent.com/SunsetTechuila/spicetify-bloom/main/images/light.png)
 
 ### **Dark Mono**
 
-![darkmono](https://raw.githubusercontent.com/nimsandu/spicetify-bloom/main/images/darkmono.png)
+![darkmono](https://raw.githubusercontent.com/SunsetTechuila/spicetify-bloom/main/images/darkmono.png)
 by [SunsetTechuila](https://github.com/SunsetTechuila)
 
 ### **Dark Green**
 
-![darkgreen](https://raw.githubusercontent.com/nimsandu/spicetify-bloom/main/images/darkgreen.png)
+![darkgreen](https://raw.githubusercontent.com/SunsetTechuila/spicetify-bloom/main/images/darkgreen.png)
 by [stpnwf](https://github.com/stpnwf)
 
 ### **Coffee**
 
-![coffee](https://raw.githubusercontent.com/nimsandu/spicetify-bloom/main/images/coffee.png)
+![coffee](https://raw.githubusercontent.com/SunsetTechuila/spicetify-bloom/main/images/coffee.png)
 by [yumegenso](https://github.com/yumegenso)
 
 ### **Comfy**
 
-![comfy](https://raw.githubusercontent.com/nimsandu/spicetify-bloom/main/images/comfy.png)
+![comfy](https://raw.githubusercontent.com/SunsetTechuila/spicetify-bloom/main/images/comfy.png)
 
 ## Dependencies
 
@@ -85,7 +85,7 @@ Please report about that via the repository's issues page.
 ### Theme doesn't work correctly with Spotify version less than 1.2.14
 
 In Spotify version 1.2.14, not only has the classic UI been cut, but also the indication that a new UI is active. Since it is now problematic to identify the active UI, only Library X support remains.
-If you want to keep using the classic UI with Bloom - use the [legacy branch](https://github.com/nimsandu/spicetify-bloom/tree/legacy) (unsupported). Otherwise - update your Spotify or enable `Library X view` in the Spotify experimental settings.
+If you want to keep using the classic UI with Bloom - use the [legacy branch](https://github.com/SunsetTechuila/spicetify-bloom/tree/legacy) (unsupported). Otherwise - update your Spotify or enable `Library X view` in the Spotify experimental settings.
 
 ## Credits
 

@@ -13,7 +13,6 @@ export const navLinkSelector = ".main-yourLibraryX-navLink";
 export const navLinkAccentClass = "main-yourLibraryX-navLink-accent";
 
 export const playingBarBlurClass = "main-nowPlayingBar-container-blur";
-export const playingBarBlurBorderClass = "main-nowPlayingBar-container-blur-border";
 
 export const themeSettingsSectionId = "bloom-settings";
 export const themeSettingsSectionName = "Bloom theme settings";
@@ -30,3 +29,9 @@ export const windowControlsBackgroundSettingDefaultValue = false;
 
 export const fluentStyleSettingTitle = "Enable Fluent Style for fluent color scheme";
 export const fluentStyleSettingDefaultValue = true;
+
+export const easterEggButtonId = "easter-egg";
+export const easterEggButtonDescription = "Press this button";
+export const easterEggButtonValue = "Yes, do it!";
+export const easterEggVideoURL =
+  "https://raw.githubusercontent.com/SunsetTechuila/spicetify-bloom/main/src/assets/easter-egg.webm";

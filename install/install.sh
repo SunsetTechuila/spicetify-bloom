@@ -40,7 +40,7 @@ if [ -z "$(which mktemp)" ]; then
 fi
 
 echo "Beginning installation of spicetify-bloom"
-echo "https://github.com/nimsandu/spicetify-bloom"
+echo "https://github.com/SunsetTechuila/spicetify-bloom"
 
 printf "\nPress any key to continue or Ctrl+C to cancel"
 read -sn1 < /dev/tty
@@ -67,7 +67,7 @@ if [[ -e "$extensionPath" || -h "$extensionPath" ]]; then
 fi
 
 # Download latest master
-zipUri="https://github.com/nimsandu/spicetify-bloom/archive/refs/heads/dist.zip"
+zipUri="https://github.com/SunsetTechuila/spicetify-bloom/archive/refs/heads/dist.zip"
 zipSavePath=`mktemp`
 zipExtractPath=`mktemp -d`
 echo "Downloading spicetify-bloom latest dist..."

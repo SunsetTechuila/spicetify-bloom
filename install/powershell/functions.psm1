@@ -24,7 +24,7 @@ function Write-HelloMessage {
         Write-Center -Message '----------------------------------------' -ForegroundColor Blue
         Write-Center -Message 'Starting the Spicetify Bloom script...' -ForegroundColor Blue
         Write-Host
-        Write-Center -Message 'github.com/nimsandu/spicetify-bloom' -ForegroundColor Blue
+        Write-Center -Message 'github.com/SunsetTechuila/spicetify-bloom' -ForegroundColor Blue
         Write-Center -Message '----------------------------------------' -ForegroundColor Blue
         Write-Host
     }
@@ -287,7 +287,7 @@ function Get-Bloom {
     )
     begin {
         Write-Verbose -Message 'Downloading Bloom theme files...' -Verbose
-        $bloomBaseURI = 'https://raw.githubusercontent.com/nimsandu/spicetify-bloom'
+        $bloomBaseURI = 'https://raw.githubusercontent.com/SunsetTechuila/spicetify-bloom'
         $bloomRemoteURI = "$bloomBaseURI/main/remote"
         $bloomDistURI = "$bloomBaseURI/dist"
         $fileList = 'color.ini', 'theme.js', 'user.css'

@@ -17,7 +17,7 @@ process {
   $modulePath = "$env:TEMP\$moduleName.psm1"
   $Parameters = @{
     Uri             = (
-      'https://raw.githubusercontent.com/nimsandu/spicetify-bloom/main/install/powershell/functions.psm1'
+      'https://raw.githubusercontent.com/SunsetTechuila/spicetify-bloom/main/install/powershell/functions.psm1'
     )
     UseBasicParsing = $true
     OutFile         = $modulePath
