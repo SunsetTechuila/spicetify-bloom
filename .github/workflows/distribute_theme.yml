@@ -31,11 +31,9 @@ jobs:
         run: |
           cp -r src/assets dist
       - name: Deploy Changes
-        uses: SunsetTechuila/git-publish-subdir-action@build
-        env:
-          REPO: self
-          BRANCH: dist
-          FOLDER: dist
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SKIP_EMPTY_COMMITS: true
-          MESSAGE: "chore: update"
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: dist
+          publish_dir: dist
+          commit_message: "chore: update"

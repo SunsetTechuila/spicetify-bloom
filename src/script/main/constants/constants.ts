@@ -18,7 +18,7 @@ export const playingBarBlurClass = "main-nowPlayingBar-container-blur";
 export const topBarBlurClass = "main-topBar-container-blur";
 
 export const themeSettingsSectionId = "bloom-settings";
-export const themeSettingsSectionName = "Bloom theme settings";
+export const themeSettingsSectionName = "Bloom theme settingss";
 
 export const requirementsSettingTitle = "Check theme requirements";
 export const requirementsSettingDefaultValue = true;
