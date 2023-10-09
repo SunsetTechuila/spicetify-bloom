@@ -245,25 +245,33 @@ html {
   justify-content: center;
 }
 
-.Root__top-bar::before {
+.main-topBar-container-blur::before {
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 3;
+  z-index: -1;
   background-image: var(--noise-texture);
   opacity: var(--noise-opacity);
   content: "";
 }
 
-.Root__top-bar {
-  position: absolute !important;
-  z-index: 4 !important;
-  grid-area: none !important;
-  width: 100vw !important;
+.main-topBar-container-blur {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
   background-color: rgba(var(--spice-rgb-sidebar), 0.85);
   backdrop-filter: blur(50px) saturate(2.5);
+}
+
+.Root__top-bar {
+  position: absolute !important;
+  z-index: 5 !important;
+  display: unset !important;
+  grid-area: none !important;
+  width: 100vw !important;
 }
 
 .main-topBar-container {
@@ -325,7 +333,7 @@ h3,
   align-items: center;
 }
 
-.main-topBar-historyButtons button:nth-child(1), {
+.main-topBar-historyButtons button:nth-child(1) {
   width: 24px !important;
   height: 24px !important;
   margin-left: 60px;
@@ -334,7 +342,7 @@ h3,
   -webkit-mask-image: url("https://sunsettechuila.github.io/spicetify-bloom/assets/fluentui-system-icons/ic_fluent_arrow_left_24_filled.svg");
 }
 
-button[aria-label="Go back"], {
+button[aria-label="Go back"] {
   width: 18px !important;
   height: 18px !important;
   background-color: var(--spice-text) !important;
@@ -540,7 +548,6 @@ button[aria-label="Go back"], {
   background-color: var(--spice-subtext) !important;
 }
 
-.main-navBar-navBarLink[href="/marketplace"] > .collection-active-icon,
 .main-yourLibraryX-navLink[href="/marketplace"] > .home-active-icon {
   -webkit-mask-image: url("https://sunsettechuila.github.io/spicetify-bloom/assets/fluentui-system-icons/ic_fluent_app_store_24_filled.svg");
   background-color: var(--spice-accent) !important;
@@ -1309,7 +1316,13 @@ style {
 /* notification */
 
 .main-notificationBubbleContainer-NotificationBubbleContainer {
-  margin-bottom: var(--temp-var2);
+  @media not (display-mode: fullscreen) {
+    margin-bottom: var(--temp-var2);
+  }
+
+  div {
+    box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.25) !important;
+  }
 }
 
 .main-notificationBubble-NotificationBubble {
@@ -2276,14 +2289,6 @@ input:checked ~ .x-toggle-indicatorWrapper .x-toggle-indicator {
   background-color: var(--spice-selected-row);
 }
 
-/* spicetify extensions */
-
-.main-topBar-button[title="Popup Lyrics"],
-.main-topBar-button[title="Full App Display"],
-.main-topBar-button[title="Bookmark"] {
-  background-color: var(--spice-card) !important;
-}
-
 .a2ruVaZt_DdrdHz3GqgU,
 .x-categoryCard-CategoryCard {
   color: var(--spice-alt-text);
@@ -2549,11 +2554,6 @@ input:checked ~ .x-toggle-indicatorWrapper .x-toggle-indicator {
 }
 
 /* Lyrics Cinema*/
-
-.Root__top-bar {
-  z-index: 5 !important;
-  display: unset !important;
-}
 
 .main-lyricsCinema-controls {
   top: 74px !important;
